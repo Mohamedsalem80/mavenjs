@@ -62,8 +62,8 @@ mvn(".red").css("color", "red");
 | removeClass | v1.0.0 | Removes class to elements class list |
 | classToggle | v1.0.0 | Toggles class at elements class list |
 | hasClass | v1.0.0 | Checks if element has certain class |
-| fadeToggle | v1.0.0 beta | Animates fade to element |
-| slideToggle | v1.0.0 beta | Animates slide to element |
+| fadeToggle | v1.0.0 Beta | Animates fade to element |
+| slideToggle | v1.0.0 Beta | Animates slide to element |
 | val | v1.0.0 | Returns input element value |
 | len | v1.0.0 | Returns input element value length |
 | submit | v1.0.0 | Submit selected forms |
