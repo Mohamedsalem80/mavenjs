@@ -1,4 +1,4 @@
-# v1.0.0js
+# mavenjs v1.0.0
 an open-sourced JavaScript library that eases creation and manipulation of web applications.
 
 | Functions  | Version   | Description |
