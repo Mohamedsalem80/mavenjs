@@ -81,3 +81,7 @@ mvn(".red").css("color", "red");
 | ajax | v1.0.0 | Sets up an ajax request |
 | Xss | v1.0.0 | Clears input from cross site scripting attacks through string |
 | XssURI| v1.0.0 | Clears input from cross site scripting attacks through URI |
+
+---
+
+[↑Top](https://github.com/Mohamedsalem80/mavenjs/blob/main/README.md#mavenjs-v100)
