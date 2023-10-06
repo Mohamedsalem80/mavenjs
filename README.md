@@ -1,6 +1,28 @@
 # mavenjs v1.0.0
 an open-sourced JavaScript library that eases creation and manipulation of web applications.
 
+## Examples:
+
+### Select all divs 
+```js
+var divs = mvn("div");
+```
+
+### Select all elements with container class
+```js
+var containers = mvn(".container");
+```
+### Select all divs with container class
+```js
+var divs = mvn("div.container");
+```
+
+### Apply CSS properties to elements
+```js
+mvn(".red").css("color", "red");
+```
+## Further more:
+
 | Functions  | Version   | Description |
 | ---------- | --------- | ----------- |
 | add | v1.0.0 | Adds an old maven object to the new object |
