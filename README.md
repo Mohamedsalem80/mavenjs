@@ -2,7 +2,7 @@
 an open-sourced JavaScript library that eases creation and manipulation of web applications.
 
 ---
-[Download mavenjs v1.0.0](https://github.com/Mohamedsalem80/mavenjs/archive/refs/tags/v1.0.1.zip)
+[Download mavenjs v1.0.1](https://github.com/Mohamedsalem80/mavenjs/archive/refs/tags/v1.0.1.zip)
 ---
 
 ## Examples:
