@@ -66,8 +66,8 @@ mvn(".red").css("color", "red");
 | removeClass | v1.0.0 | Removes class to elements class list |
 | classToggle | v1.0.0 | Toggles class at elements class list |
 | hasClass | v1.0.0 | Checks if element has certain class |
-| fadeToggle | v1.0.0 | Animates fade to element |
-| slideToggle | v1.0.0 | Animates slide to element |
+| fadeToggle | v1.0.1 | Animates fade to element |
+| slideToggle | v1.0.1 | Animates slide to element |
 | val | v1.0.0 | Returns input element value |
 | len | v1.0.0 | Returns input element value length |
 | submit | v1.0.0 | Submit selected forms |
@@ -76,7 +76,7 @@ mvn(".red").css("color", "red");
 | prop | v1.0.0 | If a property is given its set to elements else returns property value |
 | removeAttr | v1.0.0 | Removes Attribute from elements |
 | attr | v1.0.0 | If Attribute is given, it's set to elements else gets attribute from elements |
-| data | v1.0.0 | Set or get data from elements |
+| data | v1.0.1 | Set or get data from elements |
 | addSelf | v1.0.0 | Adds maven object to it self |
 | ajax | v1.0.0 | Sets up an ajax request |
 | Xss | v1.0.0 | Clears input from cross site scripting attacks through string |
