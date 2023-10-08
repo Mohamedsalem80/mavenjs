@@ -10,9 +10,9 @@ an open-sourced JavaScript library that eases creation and manipulation of web a
 - It will show `MavenJS: `
 - write `build-mavenjs` to start the building `MavenJS: build-mavenjs`
 - From here we have two paths
-    - Write `*` to build the full version `MavenJS: build-mavenjs *` hit enter and it will generate a js file containing the code
-    - Write `core` to build library core `MavenJS: build-mavenjs core` then
-    - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` hit enter and it will generate a js file containing the code
+    - First: Write `*` to build the full version `MavenJS: build-mavenjs *` hit enter and it will generate a js file containing the code
+    - Secound: Write `core` to build library core `MavenJS: build-mavenjs core` then
+        - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` hit enter and it will generate a js file containing the code
 
 ---
 
