@@ -332,14 +332,14 @@
             for(var i = 0; i < this.length; i++) {
                 var ele = this[i];
                 var dis = getComputedStyle(ele).display;
-                new fadeToggle_.call(ele, ele, dis, duration);
+                new fadeToggle_(ele, dis, duration);
             }
         },
         slideToggle: function(duration) {
             for(var i=0; i < this.length; i++) {
                 var ele = this[i];
                 var dis = getComputedStyle(ele).display;
-                new slideToggle_(ele, ele, dis, duration);
+                new slideToggle_(ele, dis, duration);
             }
         },
         val: function(vale) {
@@ -729,40 +729,52 @@
     start.prototype = maven.fn;
 
     function fadeToggle_(ele, dis, duration){
+        this.ele = ele;
+        this.dis = dis;
+        this.duration = duration;
         if (dis == "none") {
-            ele.style.opacity = "0";
-            ele.style.display="block";
-            ele.style.transition="all "+duration+"ms";
+            console.log("show");
+            this.ele.style.opacity = "0";
+            this.ele.style.display = "block";
+            this.ele.style.transition = "all "+this.duration+"ms";
             setTimeout(function() {
                 ele.style.opacity="1";
-            }, 10);
+            }, 15);
         } else {
-            ele.style.opacity = "1";
-            ele.style.transition="all "+duration+"ms";
-            ele.style.opacity="0";
+            this.ele.style.opacity = "1";
+            this.ele.style.transition="all "+this.duration+"ms";
             setTimeout(function() {
+                ele.style.opacity="0";
+            }, 10);
+            setTimeout(function(){
                 ele.style.display="none";
             }, duration+10);
         }
     }
 
     function slideToggle_(ele, dis, duration) {
+        this.ele = ele;
+        this.dis = dis;
+        this.duration = duration;
         if (dis == "none") {
-            ele.style.display="block";
-            ele.style.maxHeight = "0";
-            var h = ele.scrollHeight+"px";
-            ele.style.transition="all "+duration+"ms";
+            this.ele.style.display = "block";
+            this.ele.style.maxHeight = "0";
+            var h = this.ele.scrollHeight + "px";
+            this.ele.style.transition = "all "+this.duration+"ms";
             setTimeout(function() {
                 ele.style.maxHeight = h;
             }, 10);
         } else {
-            var h = ele.scrollHeight+"px";
-            ele.style.maxHeight = h;
-            ele.style.transition="all "+duration+"ms";
-            ele.style.maxHeight="0";
+            var h = this.ele.scrollHeight+"px";
+            this.ele.style.maxHeight = h;
+            this.ele.style.overflow = "hidden";
+            this.ele.style.transition="all "+this.duration+"ms";
+            setTimeout(function(){
+                ele.style.maxHeight="0";
+            }, 10);
             setTimeout(function() {
                 ele.style.display="none";
-            }, duration+1);
+            }, this.duration+1);
         }
     }
 
