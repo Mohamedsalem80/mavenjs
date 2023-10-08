@@ -54,8 +54,8 @@ mvn(".red").css("color", "red");
 | siblings | v1.0.0 | Returns elements siblings as a list |
 | nextAll | v1.0.0 | Returns elements next siblings as a list |
 | prevAll | v1.0.0 | Returns elements previos siblings as a list |
-| show | v1.0.0 Beta | Sets element display to none |
-| hide | v1.0.0 Beta | Sets elements display to block |
+| show | v1.0.0 | Sets element display to none |
+| hide | v1.0.0 | Sets elements display to block |
 | empty | v1.0.0 | Empties elements content |
 | remove | v1.0.0 | Removes elements |
 | append | v1.0.0 | Add html content at the end element |
@@ -66,8 +66,8 @@ mvn(".red").css("color", "red");
 | removeClass | v1.0.0 | Removes class to elements class list |
 | classToggle | v1.0.0 | Toggles class at elements class list |
 | hasClass | v1.0.0 | Checks if element has certain class |
-| fadeToggle | v1.0.0 Beta | Animates fade to element |
-| slideToggle | v1.0.0 Beta | Animates slide to element |
+| fadeToggle | v1.0.0 | Animates fade to element |
+| slideToggle | v1.0.0 | Animates slide to element |
 | val | v1.0.0 | Returns input element value |
 | len | v1.0.0 | Returns input element value length |
 | submit | v1.0.0 | Submit selected forms |
