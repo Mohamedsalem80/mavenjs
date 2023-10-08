@@ -3,6 +3,17 @@ an open-sourced JavaScript library that eases creation and manipulation of web a
 
 ---
 [Download mavenjs v1.0.2](https://github.com/Mohamedsalem80/mavenjs/archive/refs/tags/v1.0.2.zip)
+
+## OR
+### Customize using builder
+- Run `builder.py`
+- It will show `MavenJS: `
+- write `build-mavenjs` to start the building `MavenJS: build-mavenjs`
+- From here we have to paths
+    - Write `*` to build the full version `MavenJS: build-mavenjs *` hit enter and it will generate a js file containing the code
+    - Write `core` to build library core `MavenJS: build-mavenjs core` then
+    - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` hit enter and it will generate a js file containing the code
+
 ---
 
 ## Examples:
