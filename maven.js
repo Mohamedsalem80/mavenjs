@@ -733,7 +733,6 @@
         this.dis = dis;
         this.duration = duration;
         if (dis == "none") {
-            console.log("show");
             this.ele.style.opacity = "0";
             this.ele.style.display = "block";
             this.ele.style.transition = "all "+this.duration+"ms";
