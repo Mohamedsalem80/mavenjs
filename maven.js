@@ -17,7 +17,7 @@
     }
 
     maven.fn = maven.prototype = {
-        version: "0.9.6 BETA",
+        version: "1.0.1",
         constructor: maven,
         ismaven: true,
         length: 0,
