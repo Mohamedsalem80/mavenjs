@@ -13,8 +13,8 @@ an open-sourced JavaScript library that eases creation and manipulation of web a
 - First: Write `*` to build the full version `MavenJS: build-mavenjs *` 
     - Hit enter and it will generate a js file containing the code
 - Secound: Write `core` to build library core `MavenJS: build-mavenjs core` then
-        - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` 
-        - Hit enter and it will generate a js file containing the code
+    - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` 
+    - Hit enter and it will generate a js file containing the code
 
 ---
 
