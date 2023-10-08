@@ -80,7 +80,8 @@ mvn(".red").css("color", "red");
 | addSelf | v1.0.0 | Adds maven object to it self |
 | ajax | v1.0.0 | Sets up an ajax request |
 | Xss | v1.0.0 | Clears input from cross site scripting attacks through string |
-| XssURI| v1.0.0 | Clears input from cross site scripting attacks through URI |
+| Import | v1.0.2 | Imports a javascript file into the web page throught a script tag |
+| copy | v1.0.2 | Copies a given text to users clipboard |
 
 ---
 
