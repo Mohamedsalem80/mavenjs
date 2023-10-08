@@ -437,20 +437,27 @@
             }
         },
         data: function(key,value){
-            var owned = [key,value];
-            for(var i=0; i < this.length; i++) {
-                if(!this[i].getAttribute("data")){
-                    this[i].setAttribute("data","[]");
-                    this[i].id = "MQ"+this.selector+i
+            if(key == null && value == null){
+                var mvnd = [];
+                for(var i=0; i < this.length; i++) {
+                    if(!this[i].getAttribute("mvn-data")){
+                        mvnd.push(null);
+                    } else {
+                        mvnd.push(this[i].getAttribute("mvn-data"));
+                    }
                 }
-                var saved = JSON.parse(this[i].getAttribute("data"));
-                saved.push(owned);
-                var t = JSON.stringify(saved);
-                this[i].setAttribute("data", t)
-
-                console.log(this[i].id)
-                console.log(this[i].getAttribute("data"))
-                window.localStorage.setItem(this[i].id,`${this[i].getAttribute("data")}`)
+                return mvnd;
+            } else {
+                var owned = [key,value];
+                for(var i=0; i < this.length; i++) {
+                    if(!this[i].getAttribute("mvn-data")){
+                        this[i].setAttribute("mvn-data","[]");
+                    }
+                    var saved = JSON.parse(this[i].getAttribute("mvn-data"));
+                    saved.push(owned);
+                    var t = JSON.stringify(saved);
+                    this[i].setAttribute("mvn-data", t)
+                }
             }
             return this;
         },
