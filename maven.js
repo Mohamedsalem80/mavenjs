@@ -1,7 +1,7 @@
 /*---------------------------------------*
  * Mohamed Salem Mohamed Soliman         *
  * mquery JavaScript Library             *
- * v1.0.0 prototype Beta                 *
+ * v1.0.1                                *
  * https://github.com/Mohamedsalem80     *
  *---------------------------------------*/
 
