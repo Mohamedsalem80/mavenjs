@@ -329,6 +329,7 @@
             }
         },
         fadeToggle: function(duration) {
+            if (duration == null) duration = 1000;
             for(var i = 0; i < this.length; i++) {
                 var ele = this[i];
                 var dis = getComputedStyle(ele).display;
@@ -336,6 +337,7 @@
             }
         },
         slideToggle: function(duration) {
+            if (duration == null) duration = 1000;
             for(var i=0; i < this.length; i++) {
                 var ele = this[i];
                 var dis = getComputedStyle(ele).display;
