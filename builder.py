@@ -1,12 +1,27 @@
 import re
 
+comment1 = re.compile(r"(?:[^\\|;|:])(?:\/\/[^\r\n]*)")
+comment2 = re.compile(r"(?:\/\*[^*]*\*+(?:[^\/*][^*]*\*+)*\/)")
+
+skippers = re.compile(r"(?:\s{2,}|\n)")
+
+def minify_str(str):
+    minified = re.sub(comment1, "", str)
+    minified = re.sub(comment2, "", minified)
+    while "  " in minified: 
+        minified = minified.replace("  ", " ")
+    while "\n" in minified:
+        minified = minified.replace("\n", "")
+    minified = re.sub(skippers, "", minified)
+    return minified
+
 full = '''/*---------------------------------------*
  * Mohamed Salem Mohamed Soliman         *
  * mquery JavaScript Library             *
  * v1.0.2                                *
  * https://github.com/Mohamedsalem80     *
  *---------------------------------------*/
-
+// a comment
 (function(global){
 
     if (!global.document) {
@@ -376,7 +391,7 @@ full = '''/*---------------------------------------*
         serialize: function(){
             var kvpairs = [];
             for (var i = 0; i < this.length; i++) {
-                var form = this[i]
+                var form = this[i];
                 for ( var i = 0; i < form.elements.length; i++ ) {
                     var e = form.elements[i];
                     if(e.type){
@@ -477,7 +492,7 @@ full = '''/*---------------------------------------*
             }
             return this;
         },
-    }
+    };
 
     var flatten = maven.flatten = function(arr){
         var temp = [];
@@ -492,16 +507,16 @@ full = '''/*---------------------------------------*
         }
         loop(arr);
         return temp;
-    }
+    };
 
     var xss = maven.xss = function(str) {
-        const lt = /</g;//60
-        const gt = />/g;//61
-        const ap = /'/g;//39
-        const ic = /"/g;//34
-        const st = /!/g;//33
-        const sl = /\//g;//47
-        const ds = /-/g;//8208
+        const lt = /</g;   //60
+        const gt = />/g;   //61
+        const ap = /'/g;   //39
+        const ic = /"/g;   //34
+        const st = /!/g;   //33
+        const sl = /\//g;   //47
+        const ds = /-/g;   //8208
         return str.toString()
                   .replace(st, "&#33;")
                   .replace(ic, "&#34;")
@@ -580,13 +595,11 @@ full = '''/*---------------------------------------*
         } catch (e) {
             window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
         }
-    }
+    };
 
     var unique = maven.unique = function(arr){
         return [...new Set(arr)];
-    }
-
-    maven.id = "maven" + ( maven.fn.version + Math.random() ).replace(/\D/g,"");
+    };
 
     var selectar = maven.find = function(selector,context){
         context = context || document;
@@ -625,7 +638,7 @@ full = '''/*---------------------------------------*
         var elements = [];
         var types = selector.trim().split(",");
         for (var i = 0; i < types.length; i++) {
-            types[i].trim()
+            types[i].trim();
             if(booleans.test(types[i])){
                 types[i].replace(booleans,function(m,s1,s2){
                     try {
@@ -663,7 +676,7 @@ full = '''/*---------------------------------------*
             }
         }
         return maven.flatten([... new Set(elements)]);
-    }
+    };
 
     start = maven.fn.start = function(selector, context){
         if(maven.next){
@@ -735,7 +748,7 @@ full = '''/*---------------------------------------*
         this.selector = selector;
         maven.next = this;
         return this;
-    }
+    };
 
     start.prototype = maven.fn;
 
@@ -786,7 +799,7 @@ full = '''/*---------------------------------------*
                 ele.style.display="none";
             }, this.duration+1);
         }
-    }
+    };
 
     var noConflict = maven.noConflict = function(deep) {
         if ( window.mvn === maven ) {
@@ -796,7 +809,7 @@ full = '''/*---------------------------------------*
             window.maven = _maven;
         }
         return maven;
-    }
+    };
     maven.noConflict(this);
 
     window.maven = window.mvn = maven;
@@ -1311,7 +1324,7 @@ mvn_funcs = {
         serialize: function(){
             var kvpairs = [];
             for (var i = 0; i < this.length; i++) {
-                var form = this[i]
+                var form = this[i];
                 for ( var i = 0; i < form.elements.length; i++ ) {
                     var e = form.elements[i];
                     if(e.type){
@@ -1434,7 +1447,7 @@ mvn_funcs = {
 }
 
 mvn_proto_end = '''
-    }
+    };
 
     var flatten = maven.flatten = function(arr){
         var temp = [];
@@ -1449,13 +1462,12 @@ mvn_proto_end = '''
         }
         loop(arr);
         return temp;
-    }
+    };
 
     var unique = maven.unique = function(arr){
         return [...new Set(arr)];
-    }
+    };
 
-    maven.id = "maven" + ( maven.fn.version + Math.random() ).replace(/\D/g,"");
     var selectar = maven.find = function(selector,context){
         context = context || document;
         var fx = {
@@ -1493,7 +1505,7 @@ mvn_proto_end = '''
         var elements = [];
         var types = selector.trim().split(",");
         for (var i = 0; i < types.length; i++) {
-            types[i].trim()
+            types[i].trim();
             if(booleans.test(types[i])){
                 types[i].replace(booleans,function(m,s1,s2){
                     try {
@@ -1531,7 +1543,7 @@ mvn_proto_end = '''
             }
         }
         return maven.flatten([... new Set(elements)]);
-    }
+    };
 
     start = maven.fn.start = function(selector, context){
         if(maven.next){
@@ -1603,7 +1615,7 @@ mvn_proto_end = '''
         this.selector = selector;
         maven.next = this;
         return this;
-    }
+    };
 
     start.prototype = maven.fn;
 '''
@@ -1631,7 +1643,7 @@ after_build_funcs =  {
                 ele.style.display="none";
             }, duration+10);
         }
-    }
+    };
 ''',
 "slideToggle": '''
     function slideToggle_(ele, dis, duration) {
@@ -1658,17 +1670,17 @@ after_build_funcs =  {
                 ele.style.display="none";
             }, this.duration+1);
         }
-    }
+    };
 ''',
 "xss": '''
     var xss = MQuery.xss = function(str) {
-        const lt = /</g;//60
-        const gt = />/g;//61
-        const ap = /'/g;//39
-        const ic = /"/g;//34
-        const st = /!/g;//33
-        const sl = /\//g;//47
-        const ds = /-/g;//8208
+        const lt = /</g;   //60
+        const gt = />/g;   //61
+        const ap = /'/g;   //39
+        const ic = /"/g;   //34
+        const st = /!/g;   //33
+        const sl = /\//g;   //47
+        const ds = /-/g;   //8208
         return str.toString()
                   .replace(st, "&#33;")
                   .replace(ic, "&#34;")
@@ -1677,7 +1689,7 @@ after_build_funcs =  {
                   .replace(lt, "&#60;")
                   .replace(gt, "&#61;")
                   .replace(ds, "&#8208;");
-    }
+    };
 ''',
 "ajax": '''
     var ajax = MQuery.ajax = function(url, method, data, callback, header="application/x-www-form-urlencoded; charset=UTF-8") {
@@ -1704,7 +1716,7 @@ after_build_funcs =  {
             console.error("mquery error: The ajax request returned an error: "+message);
         };
         request.send(data);
-    }
+    };
 ''',
 "Import": '''
     var Import = MQuery.import = function(source, callback) {
@@ -1725,7 +1737,7 @@ after_build_funcs =  {
     
         script.src = source;
         prior.parentNode.insertBefore(script, prior);
-    }
+    };
 ''',
 "parseHTML": '''
     var parseHTML = MQuery.parseHTML = function(str) {
@@ -1736,7 +1748,6 @@ after_build_funcs =  {
 ''',
 "copy": '''
     var copy = MQuery.copy = function(text) {
-
         let target = document.createElement("textarea");
         target.style.position = "absolute";
         target.style.left = "-9999px";
@@ -1752,48 +1763,118 @@ after_build_funcs =  {
         } catch (e) {
             window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
         }
-    }
+    };
 '''
 }
 
 mvn_file_end = '''
     window.maven = window.mvn = maven;
 
-})(this);
-'''
-funcs = ['add', 'toArray', 'ready', 'on', 'off', 'css', 'scroll', 'scrollTo', 'html', 'text', 'trigger', 'each', 'map', 'slice', 'find', 'filter', 'is', 'not', 'contains', 'has', 'children', 'parents', 'siblings', 'nextAll', 'prevAll', 'show', 'hide', 'empty', 'remove', 'append', 'prepend', 'after', 'before', 'addClass', 'removeClass', 'classToggle', 'hasClass', 'fadeToggle', 'slideToggle', 'val', 'len', 'submit', 'serialize', 'removeProp', 'prop', 'removeAttr', 'attr', 'data', 'addSelf']
-funcs_util = ["fadeToggle", "slideToggle"]
-funcs_after = ["ajax", "xss", "Import", "parseHTML", "copy"]
-build = []
-after_build = []
-bd = []
-regex = re.compile(r"^build-mavenjs\s((?:core|\*))\s?([\w+\s]{0,})$")
+})(this);'''
 
-prompet = input("MavenJS: ")
+funcs = ['add', 'toArray', 'ready', 'on', 'off', 'css', 'scroll', 'scrollTo', 'html', 'text', 'trigger', 'each', 'map', 'slice', 'find', 'filter', 'is', 'not', 'contains', 'has', 'children', 'parents', 'siblings', 'nextAll', 'prevAll', 'show', 'hide', 'empty', 'remove', 'append', 'prepend', 'after', 'before', 'addClass', 'removeClass', 'classToggle', 'hasClass', 'fadeToggle', 'slideToggle', 'val', 'len', 'submit', 'serialize', 'removeProp', 'prop', 'removeAttr', 'attr', 'data', 'addSelf']
+funcs_after = ["ajax", "xss", "Import", "parseHTML", "copy"]
+funcs_util = ["fadeToggle", "slideToggle"]
+after_build = []
+build = []
+
+include = False
+exclude = False
+minify = False
+
+regex = re.compile(r"^build-mavenjs\s((?:core|\*))\s?([\w+\s]{0,})")
+flag = re.compile(r"--((?:minify|include|exclude))")
+
+prompet = input("MavenJS:|").strip()
+flag_match = re.findall(flag, prompet)
+
+if "include" in flag_match and "exclude" in flag_match:
+    raise ValueError("Cannot addd include and exclude flags at the same time")
+
+if "include" not in flag_match and "exclude" not in flag_match:
+    print("include or exclude flag was not set, so default was set to include")
+    include = True
+
+if "include" in flag_match:
+    include = True
+    prompet.replace(" --include", "")
+
+if "exclude" in flag_match:
+    exclude = True
+    prompet.replace(" --exclude", "")
+
+if "minify" in flag_match:
+    minify = True
+    prompet.replace(" --minify", "")
+
 prompet_match = re.findall(regex, prompet)
-if prompet_match[0][0] == "*":
+
+if prompet_match[0][0] == "*" or prompet_match[0][0] == "full":
     with open('mavenjs_v1.0.2_full.js', 'w') as f:
-        f.write(full)
+        if minify:
+            full_min = minify_str(full)
+            f.write(full_min)
+        else:
+            f.write(full)
     f.close()
-    print("File generated successfully")
+    print("Build done successfully")
 elif prompet_match[0][0] == "core":
     build.append(mvn_file_start)
     build.append(mvn_proto_start)
-    b_funcs = prompet_match[0][1].split(" ")
-    for f in b_funcs:
-        if f not in funcs and f not in funcs_after:
-            print(f"{f} is not a MavenJS function")
-        else:
-            bd.append(f)
-            build.append(mvn_funcs[f])
-            if f in funcs_util or f in funcs_after:
-                after_build.append(after_build_funcs[f])
-    build.append(mvn_proto_end)
-    for fun in after_build:
-        build.append(fun)
-    build.append(mvn_file_end)
-    code = "".join(build)
-    with open(f'mavenjs_v1.0.2_{"_".join(bd)}.js', 'w') as f:
-        f.write(code)
-    f.close()
-    print("File generated successfully")
+    if include:
+        b_funcs = list(set(prompet_match[0][1].strip().split(" ")))
+        for f in b_funcs:
+            if f not in funcs and f not in funcs_after:
+                print(f"{f} is not a MavenJS function")
+            else:
+                if f in mvn_funcs:
+                    build.append(mvn_funcs[f])
+                if f in funcs_util or f in funcs_after:
+                    after_build.append(after_build_funcs[f])
+        build.append(mvn_proto_end)
+        for fun in after_build:
+            build.append(fun)
+        build.append(mvn_file_end)
+        code = "".join(build)
+        with open(f'mavenjs_v1.0.2_custom.js', 'w') as f:
+            if minify:
+                min_code = minify_str(code)
+                f.write(min_code)
+            else:
+                f.write(code)
+        f.close()
+        print("Build done successfully")
+    elif exclude:
+        cb_funcs = list(set(prompet_match[0][1].strip().split(" ")))
+        b_funcs = []
+        for ff in funcs:
+            if ff not in funcs and ff not in funcs_after:
+                print(f"{ff} is not a MavenJS function")
+                continue
+            if ff not in cb_funcs:
+                b_funcs.append(ff)
+                if ff in funcs_util or ff in funcs_after:
+                    after_build.append(after_build_funcs[ff])
+        for f in b_funcs:
+            if f not in funcs and f not in funcs_after:
+                print(f"{f} is not a MavenJS function")
+            else:
+                if f in mvn_funcs:
+                    build.append(mvn_funcs[f])
+                if f in funcs_util or f in funcs_after:
+                    after_build.append(after_build_funcs[f])
+        build.append(mvn_proto_end)
+        for fun in after_build:
+            build.append(fun)
+        build.append(mvn_file_end)
+        code = "".join(build)
+        with open(f'mavenjs_v1.0.2_custom.js', 'w') as f:
+            if minify:
+                min_code = minify_str(code)
+                f.write(min_code)
+            else:
+                f.write(code)
+        f.close()
+        print("Build done successfully")
+else:
+    print("Cannot build without core or full code")
