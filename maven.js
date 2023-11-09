@@ -1,7 +1,7 @@
 /*---------------------------------------*
  * Mohamed Salem Mohamed Soliman         *
  * mquery JavaScript Library             *
- * v1.0.2                                *
+ * v1.1.0                                *
  * https://github.com/Mohamedsalem80     *
  *---------------------------------------*/
 
@@ -17,7 +17,7 @@
     }
 
     maven.fn = maven.prototype = {
-        version: "1.0.2",
+        version: "1.1.0",
         constructor: maven,
         ismaven: true,
         length: 0,

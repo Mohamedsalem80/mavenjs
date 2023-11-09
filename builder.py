@@ -20,7 +20,7 @@ def minify_str(str):
 full = '''/*---------------------------------------*
  * Mohamed Salem Mohamed Soliman         *
  * mquery JavaScript Library             *
- * v1.0.2                                *
+ * v1.1.0                                *
  * https://github.com/Mohamedsalem80     *
  *---------------------------------------*/
 // a comment
@@ -36,7 +36,7 @@ full = '''/*---------------------------------------*
     }
 
     maven.fn = maven.prototype = {
-        version: "1.0.2",
+        version: "1.1.0",
         constructor: maven,
         ismaven: true,
         length: 0,
@@ -821,7 +821,7 @@ full = '''/*---------------------------------------*
 mvn_file_start = '''/*---------------------------------------*
  * Mohamed Salem Mohamed Soliman         *
  * mquery JavaScript Library             *
- * v1.0.2                                *
+ * v1.1.0                                *
  * https://github.com/Mohamedsalem80     *
  *---------------------------------------*/
 
@@ -839,7 +839,7 @@ mvn_file_start = '''/*---------------------------------------*
 
 mvn_proto_start = '''
     maven.fn = maven.prototype = {
-        version: "1.0.2",
+        version: "1.1.0",
         constructor: maven,
         ismaven: true,
         length: 0,
@@ -1812,7 +1812,7 @@ if "minify" in flag_match:
 prompet_match = re.findall(regex, prompet)
 
 if prompet_match[0][0] == "*" or prompet_match[0][0] == "full":
-    with open(f'mavenjs_v1.0.2_full_{hashlib.sha256(str(datetime.now()).encode()).hexdigest()[:10]}{".min" if minify else ""}.js', 'w') as f:
+    with open(f'mavenjs_v1.1.0_full_{hashlib.sha256(str(datetime.now()).encode()).hexdigest()[:10]}{".min" if minify else ""}.js', 'w') as f:
         if minify:
             full_min = minify_str(full)
             f.write(full_min)
@@ -1838,7 +1838,7 @@ elif prompet_match[0][0] == "core":
             build.append(fun)
         build.append(mvn_file_end)
         code = "".join(build)
-        with open(f'mavenjs_v1.0.2_custom{".min" if minify else ""}.js', 'w') as f:
+        with open(f'mavenjs_v1.1.0_custom{".min" if minify else ""}.js', 'w') as f:
             if minify:
                 min_code = minify_str(code)
                 f.write(min_code)
@@ -1870,7 +1870,7 @@ elif prompet_match[0][0] == "core":
             build.append(fun)
         build.append(mvn_file_end)
         code = "".join(build)
-        with open(f'mavenjs_v1.0.2_custom{".min" if minify else ""}.js', 'w') as f:
+        with open(f'mavenjs_v1.1.0_custom{".min" if minify else ""}.js', 'w') as f:
             if minify:
                 min_code = minify_str(code)
                 f.write(min_code)
