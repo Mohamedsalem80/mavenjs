@@ -13,10 +13,10 @@ an open-sourced JavaScript library that eases creation and manipulation of web a
     - Hit enter and it will generate a js file containing the code
 - Write `core` to build library core `MavenJS:| build core` then
     - Write the functions you want `MavenJS:| build core add on css slideToggle`
-    - Add the flag you want to use `--include` to include the written functions to the build
-    - Or `--exclude` remove the written functions from build but adds all the other functions
+    - Add the flag you want to use `--include` to include the written functions to the build `MavenJS:| build core add on css slideToggle --include`
+    - Or `--exclude` remove the written functions from build but adds all the other functions `MavenJS:| build core add on css slideToggle --exclude`
     - Hit enter and it will generate a js file containing the code
-- You can add `--minify` flag to minify the js file 
+- You can add `--minify` flag to minify the js file `MavenJS:| build core add on css slideToggle --minify` 
 ---
 
 ## Examples:
