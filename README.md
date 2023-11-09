@@ -7,15 +7,16 @@ an open-sourced JavaScript library that eases creation and manipulation of web a
 ## OR
 ### Customize using builder
 - Run `builder.py`
-- It will show `MavenJS: `
-- write `build-mavenjs` to start the building `MavenJS: build-mavenjs`
-- From here we have two paths
-- First: Write `*` to build the full version `MavenJS: build-mavenjs *` 
+- It will show `MavenJS:| `
+- write `build` to start the building `MavenJS:| build`
+- First: Write `*` to build the full version `MavenJS:| build *` 
     - Hit enter and it will generate a js file containing the code
-- Secound: Write `core` to build library core `MavenJS: build-mavenjs core` then
-    - Write the functions you want `MavenJS: build-mavenjs core add on css slideToggle` 
+- Write `core` to build library core `MavenJS:| build core` then
+    - Write the functions you want `MavenJS:| build core add on css slideToggle`
+    - Add the flag you want to use `--include` to include the written functions to the build
+    - Or `--exclude` remove the written functions from build but adds all the other functions
     - Hit enter and it will generate a js file containing the code
-
+- You can add `--minify` flag to minify the js file 
 ---
 
 ## Examples:

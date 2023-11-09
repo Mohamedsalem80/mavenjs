@@ -1,4 +1,6 @@
 import re
+import hashlib
+from datetime import datetime, timedelta
 
 comment1 = re.compile(r"(?:[^\\|;|:])(?:\/\/[^\r\n]*)")
 comment2 = re.compile(r"(?:\/\*[^*]*\*+(?:[^\/*][^*]*\*+)*\/)")
@@ -1782,7 +1784,7 @@ include = False
 exclude = False
 minify = False
 
-regex = re.compile(r"^build-mavenjs\s((?:core|\*))\s?([\w+\s]{0,})")
+regex = re.compile(r"^build\s((?:core|\*))\s?([\w+\s]{0,})")
 flag = re.compile(r"--((?:minify|include|exclude))")
 
 prompet = input("MavenJS:|").strip()
@@ -1810,14 +1812,14 @@ if "minify" in flag_match:
 prompet_match = re.findall(regex, prompet)
 
 if prompet_match[0][0] == "*" or prompet_match[0][0] == "full":
-    with open('mavenjs_v1.0.2_full.js', 'w') as f:
+    with open(f'mavenjs_v1.0.2_full_{hashlib.sha256(str(datetime.now()).encode()).hexdigest()[:10]}{".min" if minify else ""}.js', 'w') as f:
         if minify:
             full_min = minify_str(full)
             f.write(full_min)
         else:
             f.write(full)
     f.close()
-    print("Build done successfully")
+    print("Build done. File generated successfully")
 elif prompet_match[0][0] == "core":
     build.append(mvn_file_start)
     build.append(mvn_proto_start)
@@ -1836,14 +1838,14 @@ elif prompet_match[0][0] == "core":
             build.append(fun)
         build.append(mvn_file_end)
         code = "".join(build)
-        with open(f'mavenjs_v1.0.2_custom.js', 'w') as f:
+        with open(f'mavenjs_v1.0.2_custom{".min" if minify else ""}.js', 'w') as f:
             if minify:
                 min_code = minify_str(code)
                 f.write(min_code)
             else:
                 f.write(code)
         f.close()
-        print("Build done successfully")
+        print("Build done. File generated successfully")
     elif exclude:
         cb_funcs = list(set(prompet_match[0][1].strip().split(" ")))
         b_funcs = []
@@ -1868,13 +1870,13 @@ elif prompet_match[0][0] == "core":
             build.append(fun)
         build.append(mvn_file_end)
         code = "".join(build)
-        with open(f'mavenjs_v1.0.2_custom.js', 'w') as f:
+        with open(f'mavenjs_v1.0.2_custom{".min" if minify else ""}.js', 'w') as f:
             if minify:
                 min_code = minify_str(code)
                 f.write(min_code)
             else:
                 f.write(code)
         f.close()
-        print("Build done successfully")
+        print("Build done. File generated successfully")
 else:
     print("Cannot build without core or full code")
